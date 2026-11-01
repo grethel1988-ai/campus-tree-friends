@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>認識校園樹朋友｜國小二年級自然探索互動網</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 背景飄落小樹葉裝飾 -->
+  <div class="floating-leaves" aria-hidden="true">
+    <span class="floating-leaf" style="left: 6%; top: 14%; animation-delay: 0s;">🍃</span>
+    <span class="floating-leaf" style="left: 24%; top: 75%; animation-delay: -4s;">🌿</span>
+    <span class="floating-leaf" style="left: 88%; top: 22%; animation-delay: -7s;">🍀</span>
+    <span class="floating-leaf" style="left: 72%; top: 80%; animation-delay: -11s;">🍂</span>
+    <span class="floating-leaf" style="left: 48%; top: 10%; animation-delay: -2s;">🌱</span>
+  </div>
+
+  <!-- 慶祝彩帶畫布 -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- 頂部導覽列 -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-logo" onclick="switchPage('home')" role="button" tabindex="0" aria-label="回到樹木地圖探索首頁">
+        <div class="brand-icon">🌳</div>
+        <div class="brand-text">
+          <h1>認識校園樹朋友</h1>
+          <p>二年級小小自然偵探探索樂園</p>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="網站主要分頁">
+        <button class="nav-tab active" data-target="home" onclick="switchPage('home')">
+          <span>🗺️</span>
+          <span>1. 樹木地圖探索</span>
+        </button>
+        <button class="nav-tab" data-target="details" onclick="switchPage('details')">
+          <span>📖</span>
+          <span>2. 樹朋友詳細介紹</span>
+        </button>
+        <button class="nav-tab" data-target="games" onclick="switchPage('games')">
+          <span>🎮</span>
+          <span>3. 互動遊戲區</span>
+        </button>
+      </nav>
+
+      <div class="header-tools">
+        <button id="soundToggleBtn" class="sound-toggle-btn" onclick="toggleSound()" title="切換音效與語音">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">音效開啟</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- ==========================================
+         分頁 1：樹木地圖探索 (Home)
+         ========================================== -->
+    <section id="page-home" class="page-section active" aria-label="樹木地圖探索">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <div class="hero-badge">🔍 歡迎來到校園大樹王國！</div>
+          <h2 class="hero-title">嗨！小偵探，一起來認識校園裡的 5 位樹朋友吧！</h2>
+          <p class="hero-desc">
+            點一點地圖上的大樹地標，或是翻開下方的「樹朋友卡片」，收集滿 5 顆探索星星，就能挑戰小偵探遊戲拿勳章喔！
+          </p>
+        </div>
+        <div class="progress-box">
+          <div class="progress-title">⭐ 樹朋友認識進度 ⭐</div>
+          <div class="progress-stars" id="progressStarsRow">
+            <span class="star-slot" data-tree-star="banyan" title="榕樹">⭐</span>
+            <span class="star-slot" data-tree-star="bodhi" title="菩提樹">⭐</span>
+            <span class="star-slot" data-tree-star="casuarina" title="木麻黃">⭐</span>
+            <span class="star-slot" data-tree-star="soapberry" title="無患子">⭐</span>
+            <span class="star-slot" data-tree-star="almond" title="小葉欖仁">⭐</span>
+          </div>
+          <div class="progress-sub" id="progressCounterText">已認識 0 / 5 位樹朋友</div>
+        </div>
+      </div>
+
+      <!-- 互動校園地圖 -->
+      <div class="campus-map-card">
+        <div class="map-header">
+          <h3>🏫 校園樹木探索地圖</h3>
+          <span class="map-tip">👆 點擊地圖上的樹朋友，直接去看祂的秘密！</span>
+        </div>
+        <div class="campus-stage" id="campusMapStage">
+          <!-- 由 script.js 動態渲染 5 個地圖座標按鈕 -->
+        </div>
+      </div>
+
+      <!-- 5 位樹朋友翻面卡片入口 -->
+      <div class="section-heading">
+        <h2>🌿 5 位校園樹朋友卡片入口</h2>
+        <p>💡 點「🔄 翻面猜猜看」可以翻轉卡片，點照片還能「🔍 放大看葉子」喔！</p>
+      </div>
+
+      <div class="home-cards-grid" id="homeCardsGrid">
+        <!-- 由 script.js 動態渲染 5 張翻轉卡片 -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         分頁 2：樹朋友詳細介紹 (Tree Detail Section)
+         ========================================== -->
+    <section id="page-details" class="page-section" aria-label="樹朋友詳細介紹">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <div class="hero-badge">📖 樹朋友圖鑑百科</div>
+          <h2 class="hero-title">仔細觀察！每位樹朋友都有超酷的本領！</h2>
+          <p class="hero-desc">
+            點擊葉子照片可以用「🔍 放大鏡」看清楚葉脈；點「🔊 唸給我聽」可以聽故事；點「🔄 翻面看任務」還有小偵探挑戰喔！
+          </p>
+        </div>
+        <div>
+          <button class="btn-explore" style="font-size: 1.15rem; padding: 14px 24px;" onclick="switchPage('games')">
+            🎮 我都學會了！去玩遊戲 ➡️
+          </button>
+        </div>
+      </div>
+
+      <!-- 快速篩選按鈕列 -->
+      <div class="filter-pills-bar" role="tablist" aria-label="選擇要查看的樹朋友">
+        <span class="filter-label">🌲 快速點選：</span>
+        <button class="filter-pill active" data-filter="all" onclick="filterDetailCards('all')">全部 5 位樹朋友</button>
+        <button class="filter-pill" data-filter="banyan" onclick="filterDetailCards('banyan')">🧓 榕樹公公</button>
+        <button class="filter-pill" data-filter="bodhi" onclick="filterDetailCards('bodhi')">💚 菩提樹</button>
+        <button class="filter-pill" data-filter="casuarina" onclick="filterDetailCards('casuarina')">🛡️ 木麻黃</button>
+        <button class="filter-pill" data-filter="soapberry" onclick="filterDetailCards('soapberry')">🫧 無患子</button>
+        <button class="filter-pill" data-filter="almond" onclick="filterDetailCards('almond')">☂️ 小葉欖仁</button>
+      </div>
+
+      <!-- 5 個詳細介紹卡片列表 -->
+      <div class="detail-cards-list" id="detailCardsList">
+        <!-- 由 script.js 動態渲染 5 張詳細介紹卡片 -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         分頁 3：互動遊戲區 (Interactive Games)
+         ========================================== -->
+    <section id="page-games" class="page-section" aria-label="互動遊戲區">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <div class="hero-badge">🏆 小小樹偵探大挑戰</div>
+          <h2 class="hero-title">動動手、動動腦，成為校園樹木小達人！</h2>
+          <p class="hero-desc">
+            共有兩個好玩的遊戲：【遊戲一：葉子連連看】與【遊戲二：小偵探隨堂測驗】，過關就能領取閃亮勳章！
+          </p>
+        </div>
+      </div>
+
+      <!-- 遊戲切換按鈕 -->
+      <div class="games-subnav">
+        <button id="tabBtnMatch" class="game-switch-btn active" onclick="switchGameTab('match')">
+          <span>🍃</span>
+          <span>遊戲一：【葉子連連看】</span>
+        </button>
+        <button id="tabBtnQuiz" class="game-switch-btn" onclick="switchGameTab('quiz')">
+          <span>🕵️</span>
+          <span>遊戲二：【小偵探隨堂測驗】</span>
+        </button>
+      </div>
+
+      <!-- 遊戲一面板：葉子連連看 -->
+      <div id="game-panel-match" class="game-panel active">
+        <div class="match-toolbar">
+          <div class="match-instructions">
+            👆 玩法：點一下左邊的<strong>「葉子與特徵」</strong>，再點一下右邊對應的<strong>「樹朋友」</strong>（也可以直接按住拉線喔）！
+          </div>
+          <div class="match-controls">
+            <button id="matchModeImgBtn" class="mode-btn active" onclick="setMatchMode('image')">
+              🖼️ 葉子特寫連連看
+            </button>
+            <button id="matchModeTextBtn" class="mode-btn" onclick="setMatchMode('feature')">
+              ✨ 特徵描述連連看
+            </button>
+            <button class="reset-btn" onclick="initMatchingGame()">
+              🔄 重新洗牌再玩一次
+            </button>
+          </div>
+        </div>
+
+        <div class="match-columns-header">
+          <div class="match-col-badge left-badge">🍃 左邊：葉子與特徵線索</div>
+          <div class="match-col-center-hint">⚡ 請連線配對 ⚡</div>
+          <div class="match-col-badge right-badge">🌳 右邊：校園樹朋友</div>
+        </div>
+
+        <div class="match-board-container" id="matchBoardContainer">
+          <!-- 中央 SVG 畫線層（覆蓋整個配對區） -->
+          <svg class="match-svg-layer" id="matchSvgLayer"></svg>
+
+          <!-- 左側：葉子特寫或特徵描述 -->
+          <div class="match-column match-column-left" id="matchLeftColumn"></div>
+
+          <!-- 右側：5 位樹朋友名稱與外號 -->
+          <div class="match-column match-column-right" id="matchRightColumn"></div>
+        </div>
+
+        <!-- 連連看過關橫幅 -->
+        <div id="matchCompleteBanner" class="match-complete-banner">
+          <div style="font-size: 3.4rem; margin-bottom: 8px;">🎉🌟🍃</div>
+          <h3 style="font-size: 1.9rem; color: var(--green-dark); font-weight: 900; margin-bottom: 8px;">
+            太厲害了！5 位樹朋友全部配對成功！
+          </h3>
+          <p style="font-size: 1.2rem; font-weight: 800; color: var(--text-body); margin-bottom: 18px;">
+            你的眼睛真雪亮！接下來快去挑戰「遊戲二：小偵探隨堂測驗」領取成功勳章吧！
+          </p>
+          <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <button class="btn-flip" style="max-width: 240px;" onclick="initMatchingGame()">
+              🔄 再玩一次連連看
+            </button>
+            <button class="btn-explore" style="max-width: 280px;" onclick="switchGameTab('quiz')">
+              🕵️ 前往【小偵探隨堂測驗】 ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 遊戲二面板：小偵探隨堂測驗 -->
+      <div id="game-panel-quiz" class="game-panel">
+        <div class="quiz-header-bar">
+          <div>
+            <span style="font-size: 1.3rem; font-weight: 900; color: var(--green-dark);">
+              🕵️ 小偵探隨堂測驗（共 3 題單選題）
+            </span>
+          </div>
+          <div class="quiz-progress-pills" id="quizStepPills">
+            <!-- 動態產生第 1 ~ 3 題進度標籤 -->
+          </div>
+          <div>
+            <button class="reset-btn" onclick="initQuizGame()">🔄 換一組題目重測</button>
+          </div>
+        </div>
+
+        <!-- 題目作答區 -->
+        <div id="quizActiveArea">
+          <div class="quiz-question-card" id="quizQuestionCard">
+            <!-- 動態渲染題目內容 -->
+          </div>
+        </div>
+
+        <!-- 答對全部題目：成功勳章頒獎區 -->
+        <div id="quizMedalCard" class="medal-celebration-card">
+          <div class="medal-badge-graphic" aria-hidden="true">🏅</div>
+          <div class="hero-badge" style="font-size: 1.15rem;">✨ 恭喜闖關成功 ✨</div>
+          <h3 class="medal-title">榮獲【校園樹偵探成功勳章】！</h3>
+          <p class="medal-subtitle" id="medalScoreSummary">
+            你成功答對了所有題目，已經是超級厲害的校園樹木小博士囉！
+          </p>
+          <div style="background: #f1f8e9; border: 3px dashed #66bb6a; border-radius: 20px; padding: 18px; max-width: 560px; margin: 0 auto 24px;">
+            <p style="font-size: 1.15rem; font-weight: 900; color: var(--green-dark);">
+              🌱 認識的樹朋友：榕樹公公、菩提樹、木麻黃、無患子、小葉欖仁
+            </p>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+            <button class="btn-speak" onclick="speakText('恭喜你獲得校園樹偵探成功勳章！你已經認識榕樹、菩提樹、木麻黃、無患子和小葉欖仁，下次在校園散步時，記得跟樹朋友打招呼喔！')">
+              🔊 聽勳章祝賀語音
+            </button>
+            <button class="btn-detail-flip" onclick="initQuizGame()">
+              🔄 再挑戰一次新題目
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       圖片放大檢視器 (Lightbox Modal)
+       ========================================== -->
+  <div id="lightboxModal" class="lightbox-overlay" onclick="handleLightboxBackdrop(event)" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-dialog">
+      <div class="lightbox-top">
+        <div class="lightbox-title" id="lightboxTitle">🔍 葉子放大鏡檢視器</div>
+        <button class="lightbox-close" onclick="closeLightbox()">✖ 關閉視窗</button>
+      </div>
+      <div class="lightbox-stage" onclick="toggleLightboxZoom()">
+        <img id="lightboxImage" src="" alt="葉子放大特寫圖" />
+      </div>
+      <div class="lightbox-footer">
+        <div class="lightbox-caption" id="lightboxCaption">點擊圖片可切換「超級放大鏡」模式！</div>
+        <div class="lightbox-controls">
+          <button class="btn-detail-flip" style="padding: 8px 18px; font-size: 1rem;" onclick="toggleLightboxZoom()">
+            🔎 放大 / 縮小切換
+          </button>
+          <button class="btn-speak" style="padding: 8px 18px; font-size: 1rem;" onclick="speakLightboxDescription()">
+            🔊 唸特徵給我聽
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
