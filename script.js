@@ -12,7 +12,7 @@ const TREES_DATA = [
     id: "banyan",
     order: 1,
     shortName: "榕樹",
-    displayName: "榕樹公公",
+    displayName: "榕樹",
     emoji: "🧓",
     campusSpot: "📍 操場大樹區",
     nickname: "長鬍子的老爺爺",
@@ -25,8 +25,8 @@ const TREES_DATA = [
     leafText: "厚厚光澤卵圓葉（摸起來厚實、表面亮晶晶）",
     image: "樹的圖檔/banyan_leaf_closeup.png",
     matchFeatureClue: "氣根變支柱根、白色乳汁保護自己、厚厚光澤卵圓葉",
-    story: "嗨！我是校園裡的「榕樹公公」，大家都叫我「長鬍子的老爺爺」！我垂下來的鬍子叫做「氣根」，可以吸收空氣中的水分；長進土裡後還會變成強壯的「支柱根」喔！我的葉子是厚厚有光澤的卵圓葉，受傷時還會流出白色乳汁保護自己呢！",
-    detectiveMission: "下次到操場旁找榕樹公公時，數一數祂有幾根垂下來的「氣根鬍子」？千萬別拉扯祂的鬍子喔！",
+    story: "嗨！我是校園裡的「榕樹」，大家都叫我「長鬍子的老爺爺」！我垂下來的鬍子叫做「氣根」，可以吸收空氣中的水分；長進土裡後還會變成強壯的「支柱根」喔！我的葉子是厚厚有光澤的卵圓葉，受傷時還會流出白色乳汁保護自己呢！",
+    detectiveMission: "下次到操場旁找榕樹時，數一數祂有幾根垂下來的「氣根鬍子」？千萬別拉扯祂的鬍子喔！",
     funFact: "榕樹的小果實叫「隱頭果」，裡面藏著小小花朵，只有小小的榕果小蜂鑽得進去幫祂傳粉喔！"
   },
   {
@@ -122,9 +122,9 @@ const QUIZ_POOL = [
     treeId: "banyan",
     image: "樹的圖檔/banyan_leaf_closeup.png",
     question: "哪一位樹朋友外號叫「長鬍子的老爺爺」，有會變成支柱根的「氣根」和白色乳汁？",
-    options: ["🧓 榕樹公公", "💚 菩提樹", "🫧 無患子"],
+    options: ["🧓 榕樹", "💚 菩提樹", "🫧 無患子"],
     answerIndex: 0,
-    explanation: "答對了！榕樹公公垂下來的「氣根」像長鬍子，長大碰到地會變成支柱根，受傷還有白色乳汁保護自己喔！"
+    explanation: "答對了！榕樹垂下來的「氣根」像長鬍子，長大碰到地會變成支柱根，受傷還有白色乳汁保護自己喔！"
   },
   {
     id: "q2",
@@ -140,7 +140,7 @@ const QUIZ_POOL = [
     treeId: "soapberry",
     image: "樹的圖檔/soapberry_leaf_closeup.png",
     question: "哪一位樹朋友是「天然洗手泡泡樹」，果皮含有皂素，加水搓一搓就會冒泡泡？",
-    options: ["☂️ 小葉欖仁", "🧓 榕樹公公", "🫧 無患子"],
+    options: ["☂️ 小葉欖仁", "🧓 榕樹", "🫧 無患子"],
     answerIndex: 2,
     explanation: "完全正確！無患子的果皮含有天然「皂素」，加水搓揉就能起泡洗手，裡面還有黑色的硬果核！"
   },
@@ -158,7 +158,7 @@ const QUIZ_POOL = [
     treeId: "almond",
     image: "樹的圖檔/madagascar_almond_leaf_closeup.png",
     question: "枝條「分層輪生」像一把層層疊疊的大綠傘，而且葉子是「提琴形倒卵葉」的是哪位樹朋友？",
-    options: ["🧓 榕樹公公", "☂️ 小葉欖仁", "🛡️ 木麻黃"],
+    options: ["🧓 榕樹", "☂️ 小葉欖仁", "🛡️ 木麻黃"],
     answerIndex: 1,
     explanation: "答對囉！小葉欖仁有分層輪生的枝條，就像層層疊疊的大綠傘，葉子還是可愛的提琴形倒卵葉喔！"
   }
