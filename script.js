@@ -23,6 +23,10 @@ const TREES_DATA = [
       "🟢 隱頭果：花藏在圓圓的小果實裡面，是小鳥最愛的點心！"
     ],
     leafText: "厚厚光澤卵圓葉（摸起來厚實、表面亮晶晶）",
+    matchLeafTitle: "厚厚光澤卵圓葉",
+    matchLeafDesc: "摸起來厚實、表面亮晶晶",
+    matchFeatureTitle: "氣根變支柱根、白色乳汁",
+    matchFeatureDesc: "氣根吸水長大、乳汁保護自己",
     image: "樹的圖檔/banyan_leaf_closeup.png",
     matchFeatureClue: "氣根變支柱根、白色乳汁保護自己、厚厚光澤卵圓葉",
     story: "嗨！我是校園裡的「榕樹」，大家都叫我「長鬍子的老爺爺」！我垂下來的鬍子叫做「氣根」，可以吸收空氣中的水分；長進土裡後還會變成強壯的「支柱根」喔！我的葉子是厚厚有光澤的卵圓葉，受傷時還會流出白色乳汁保護自己呢！",
@@ -44,6 +48,10 @@ const TREES_DATA = [
       "🎨 繽紛變裝：新長出來的嫩葉是粉紅或淡紅色的，長大才變成翠綠色喔！"
     ],
     leafText: "愛心形狀葉片＋長長的「滴水尖」小尾巴",
+    matchLeafTitle: "愛心葉片＋長長「滴水尖」",
+    matchLeafDesc: "前端有像小尾巴的雨水溜滑梯",
+    matchFeatureTitle: "滴水尖、葉脈書籤、繽紛變裝",
+    matchFeatureDesc: "雨水順著小尾巴滴落、可做書籤",
     image: "樹的圖檔/bodhi_leaf_closeup.png",
     matchFeatureClue: "愛心葉片有長長的「滴水尖」（雨水溜滑梯）、可做葉脈書籤",
     story: "哈囉！我是溫柔的「菩提樹」，外號是「帶小尾巴的愛心樹」！仔細看我的葉子，長得像一顆大愛心，前面還拖著一條細細長長的「滴水尖」，下雨時雨水會順著小尾巴溜滑梯滴下去，葉子才不會發霉喔！",
@@ -65,6 +73,10 @@ const TREES_DATA = [
       "🌰 小毬果：會結出像小木頭鳳梨一樣刺刺圓圓的果實喔！"
     ],
     leafText: "細細一節一節的「綠色小枝」（真葉退化成微小齒狀鱗片）",
+    matchLeafTitle: "一節一節的「綠色小枝」",
+    matchLeafDesc: "真葉退化成微小齒狀鱗片",
+    matchFeatureTitle: "綠色小枝防風、海邊防風林",
+    matchFeatureDesc: "不怕強風與海沙的防風衛兵",
     image: "樹的圖檔/casuarina_leaf_closeup.png",
     matchFeatureClue: "一節一節的「綠色小枝防風」，是海邊防風林的衛兵",
     story: "立正敬禮！我是勇敢的「木麻黃」，外號是「隱形葉子的防風衛兵」！你看到一絲一絲綠綠的，其實是我的「綠色小枝」喔！我把真正的葉子縮小藏起來，這樣大風吹過來才不會受傷，還能幫大家擋住大風沙！",
@@ -85,6 +97,10 @@ const TREES_DATA = [
       "⚫ 黑色硬果核：剝開果皮後，裡面有一顆圓滾滾、烏黑堅硬的種子，以前的小朋友都拿來打彈珠！"
     ],
     leafText: "羽狀複葉（許多小葉像羽毛一樣排成兩排，秋天會變金黃色）",
+    matchLeafTitle: "羽毛般的「羽狀複葉」",
+    matchLeafDesc: "小葉排成兩排、秋冬轉金黃色",
+    matchFeatureTitle: "果皮含皂素、黑色硬果核",
+    matchFeatureDesc: "果皮加水搓揉會冒出洗手泡泡",
     image: "樹的圖檔/soapberry_leaf_closeup.png",
     matchFeatureClue: "果皮含皂素（加水搓泡泡）、裡面有黑色硬果核",
     story: "泡泡來囉！我是神奇的「無患子」，外號是「天然洗手泡泡樹」！以前還沒有肥皂的時候，阿公阿嬤都是撿我的果實，用含有「皂素」的果皮加水搓出泡泡來洗手、洗衣服喔！果實裡面還有一顆黑亮堅硬的果核呢！",
@@ -105,6 +121,10 @@ const TREES_DATA = [
       "🍂 四季變幻：春天冒出翠綠新芽、夏天像涼爽綠傘、秋冬葉子轉黃掉落，四季都有不同美感！"
     ],
     leafText: "提琴形倒卵葉（前端寬圓、下方窄，小巧可愛像小提琴）",
+    matchLeafTitle: "提琴形倒卵葉",
+    matchLeafDesc: "前端寬圓、下方窄，像小提琴",
+    matchFeatureTitle: "分層輪生枝條、四季變幻",
+    matchFeatureDesc: "樹枝層層平展，像一把大綠傘",
     image: "樹的圖檔/madagascar_almond_leaf_closeup.png",
     matchFeatureClue: "分層輪生枝條像大綠傘、四季變幻、提琴形倒卵葉",
     story: "歡迎光臨！我是優雅的「小葉欖仁」，外號是「層層疊疊的大綠傘」！抬頭看看我的樹枝，是一層一層平平地展開，叫做「分層輪生枝條」，就像一頂頂大綠傘幫大家遮太陽！我的葉子前面圓寬、後面窄，是可愛的「提琴形倒卵葉」喔！",
@@ -727,9 +747,9 @@ function initMatchingGame() {
             <img class="match-leaf-thumb" src="${tree.image}" alt="神秘葉子特寫" />
             <button type="button" class="mini-zoom-btn" onclick="openLightbox('${tree.id}', event)" title="放大看葉子">🔍</button>
           </div>
-          <div class="match-card-content">
-            <div class="match-card-title">🍃 這是誰的葉子？</div>
-            <div class="match-card-sub">${tree.leafText}</div>
+          <div class="match-card-content match-left-text">
+            <div class="match-card-title">${tree.matchLeafTitle}</div>
+            <div class="match-leaf-tag">${tree.matchLeafDesc}</div>
           </div>
           <div class="connect-dot dot-right-edge" id="dot-left-${tree.id}"></div>
         </div>
@@ -740,9 +760,9 @@ function initMatchingGame() {
              onclick="handleMatchCardClick('left', '${tree.id}')"
              onpointerdown="handleMatchPointerDown(event, 'left', '${tree.id}')">
           <div class="match-tree-badge-icon clue-icon">✨</div>
-          <div class="match-card-content">
-            <div class="match-card-title">🔎 特徵線索卡</div>
-            <div class="match-card-sub">${tree.matchFeatureClue}</div>
+          <div class="match-card-content match-left-text">
+            <div class="match-card-title">${tree.matchFeatureTitle}</div>
+            <div class="match-leaf-tag">${tree.matchFeatureDesc}</div>
           </div>
           <div class="connect-dot dot-right-edge" id="dot-left-${tree.id}"></div>
         </div>
